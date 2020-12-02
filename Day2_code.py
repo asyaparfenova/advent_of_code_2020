@@ -22,13 +22,13 @@ def verify_password_old(line: str):
     max_re = r'-([\d]+) '
     letter_re = r' ([a-z]):'
     password_re = r'[a-z][a-z]+'
-    a = int(re.findall(min_re, line)[0])
-    b = int(re.findall(max_re, line)[0])
+    min_value = int(re.findall(min_re, line)[0])
+    max_value = int(re.findall(max_re, line)[0])
     letter = re.findall(letter_re, line)[0]
     password = re.findall(password_re, line)[0]
     rule_re = fr'{letter}'
     result = re.findall(rule_re, password)
-    if len(result) >= a and len(result) <= b:
+    if len(result) >= min_value and len(result) <= max_value:
         return 1
     else:
         return 0
@@ -43,13 +43,13 @@ def verify_password_new(line):
     position_two_re = r'-([\d]+) '
     letter_re = r' ([a-z]):'
     password_re = r'[a-z][a-z]+'
-    a = int(re.findall(position_one_re, line)[0])
-    b = int(re.findall(position_two_re, line)[0])
+    position_one = int(re.findall(position_one_re, line)[0]) - 1
+    position_two = int(re.findall(position_two_re, line)[0]) - 1
     letter = re.findall(letter_re, line)[0]
     password = re.findall(password_re, line)[0]
-    if password[a-1] == letter and password[b-1] == letter:
+    if password[position_one] == letter and password[position_two] == letter:
         return 0
-    elif password[a-1] != letter and password[b-1] != letter:
+    elif password[position_one] != letter and password[position_two] != letter:
         return 0
     else:
         return 1    
