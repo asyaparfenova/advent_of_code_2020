@@ -1,5 +1,7 @@
 # advent_of_code_2020
 
+![Pipeline schema (c) SPICED Academy]()
+
 In these repository I gonna post the solutions for "Advent of Code 2020" project tasks.
 
 Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like.
