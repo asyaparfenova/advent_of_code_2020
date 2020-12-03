@@ -1,6 +1,6 @@
 # advent_of_code_2020
 
-![Pipeline schema (c) SPICED Academy]()
+![Advent_of_code_cover Photo Credit: @anniespratt|unsplash.com](https://github.com/asyaparfenova/advent_of_code_2020/blob/master/images/cover.png?raw=true)
 
 In these repository I gonna post the solutions for "Advent of Code 2020" project tasks.
 
