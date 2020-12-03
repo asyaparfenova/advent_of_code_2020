@@ -8,3 +8,6 @@ Advent of Code is an Advent calendar of small programming puzzles for a variety 
 More: https://adventofcode.com/2020/about
 
 I use python, every file is dedicated to solving 1 day tasks (so, 2 tasks per day/file)
+
+Special thanks for ideas:
+for Day task I used an idea from Leli for using Modulus operator. Check Leli's page: https://github.com/lelilia
