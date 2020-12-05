@@ -1,10 +1,17 @@
+'''This programm is a solution
+for day 4 challenges of Advent of Code 2020:
+    validating passport credentials.
+
+Before running this code you should copy your
+input data into the clipboard'''
+
 import re
 import pyperclip
 
 data = pyperclip.paste()
 to_miss = 'cid'
 
-list_of_passports = data.split('\n\r\n')
+list_of_passports = data.split('\n\r\n') # /r might be specific feature for windows
 
 '''first, let's implement light validation'''
 def validate_passport_light(passport):
