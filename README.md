@@ -16,4 +16,4 @@ More: https://adventofcode.com/2020/about
 
 ### Special thanks for ideas
 - For Day3 task I used an idea from Leli for using Modulus operator. Check [Leli](https://github.com/lelilia)'s page
-- For Day8 I have to thank [Leli](https://github.com/lelilia) and [Kristina](https://github.com/krother) for reminding about deepcopy concept
+- For Day8 I have to thank [Leli](https://github.com/lelilia) and [Kristian](https://github.com/krother) for reminding about deepcopy concept
