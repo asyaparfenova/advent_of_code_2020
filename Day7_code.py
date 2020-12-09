@@ -1,5 +1,5 @@
 '''This programm is a solution
-for day 6 challenges of Advent of Code 2020:
+for day 7 challenges of Advent of Code 2020:
 Handy Haversacks.
 
 Before running this code you should copy your
