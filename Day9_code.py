@@ -19,9 +19,7 @@ def check_sum(to_check, check_list):
             for j in check_list:
                 if int(i) + int(j) == int(to_check) and i != j:
                     bingo += 1
-                else:
-                    pass
-    return bingo
+                    return True
 
 
 def find_weakness(length, numbers):
@@ -30,7 +28,7 @@ def find_weakness(length, numbers):
     for i in range(length, len(numbers)-1):
         to_check = numbers[i]
         check_list = numbers[i-length: i]
-        if check_sum(to_check, check_list) >= 1:
+        if check_sum(to_check, check_list):
             pass
         else:
             return int(to_check)
