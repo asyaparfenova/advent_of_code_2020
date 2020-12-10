@@ -10,32 +10,45 @@ import pandas as pd
 
 
 def to_intlist(data):
+    '''
+    makes an ordered list of all adapters, incl. outlet and device
+    '''
     joltage_strings = data.split('\r\n')
     joltage_list = list(map(int,joltage_strings))
     joltage_list.append(max(joltage_list) + 3)
     joltage_list.append(0)
+    joltage_list.sort()
     return joltage_list
 
-def check_adapters(joltage_list):
+
+def multiply_different_adapters(joltage_list):
+    '''
+    calculates a product of counts of steps of 3 and counts of steps of 1
+    '''
     df = pd.DataFrame({'joltage':joltage_list})
-    df.sort_values(by=['joltage'], inplace = True)
     df['diff'] = df['joltage'].diff()
-    diffs = df.groupby(['diff']).count().shape[0]
     mult = int(df.groupby(['diff']).count().cumprod().max())
-    return (diffs, mult)
+    return mult
 
-def mult_diffs_count(adapters_tuple):
-    return adapters_tuple[1]
 
-def validate_adapters_list(joltage_list):
-    adapters_tuple = check_adapters(joltage_list)
-    if adapters_tuple[0] == 2:
-        return True
+def adapters_combinations(joltage_list):
+    '''
+    counts all possible adaptors combinations
+    '''    
+    sublist_len = 1
+    possibilities = 1
+    multipliers = {1:1, 2:1, 3:2, 4:4, 5:7}
+    for i in range(len(joltage_list) - 1):
+        if joltage_list[i+1] - joltage_list[i] == 1:
+            sublist_len += 1
+        else:
+            possibilities *= multipliers[sublist_len]
+            sublist_len = 1
+    return possibilities
+
 
 if __name__ == '__main__':
     data = pyperclip.paste()
     joltage_list = to_intlist(data)
-    adapters_tuple = check_adapters(joltage_list)
-    print('Answer for the task 1:', mult_diffs_count(adapters_tuple))
-    print(validate_adapters_list(joltage_list))
-
+    print(multiply_different_adapters(joltage_list))
+    print(adapters_combinations(joltage_list))
