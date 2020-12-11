@@ -18,3 +18,4 @@ More: https://adventofcode.com/2020/about
 - For Day3 task I used an idea from Leli for using Modulus operator. Check [Leli](https://github.com/lelilia)'s page
 - For Day8 I have to thank [Leli](https://github.com/lelilia) and [Kristian](https://github.com/krother) for reminding about deepcopy concept
 - For Day10 I have to thank [Kristian](https://github.com/krother) for kinda pointing to the right direction
+- Day10: thank Leli for introducing me to the concept of Conway's Game of Life
