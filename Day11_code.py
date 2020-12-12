@@ -1,5 +1,5 @@
 '''This programm is a solution
-for day 10 challenges of Advent of Code 2020:
+for day 11 challenges of Advent of Code 2020:
 Adapter Array.
 
 Before running this code you should copy your
