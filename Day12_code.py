@@ -8,9 +8,21 @@ input data into the clipboard'''
 import pyperclip
 
 def get_instructions(data):
-    data = data.split('\r\n')
+    '''
+    gets instructions as a list of tuples
+
+    Parameters
+    ----------
+    data : str
+        input data
+
+    Returns
+    -------
+    instructions : list
+    '''
+    splitted_data = data.split('\r\n')
     instructions = []
-    for string in data:
+    for string in splitted_data:
         direc = string[0]
         steps = int(string[1:])
         instructions.append((direc, steps))
@@ -18,6 +30,17 @@ def get_instructions(data):
 
 
 def guess_move(instr: tuple, start: list, waypoint: list):
+    '''
+    Parameters
+    ----------
+    instr : tuple
+    start : list
+    waypoint : list
+
+    Returns
+    -------
+    start : tuple
+    '''
     if instr[0] == 'F':
         if start[2] == 0:
             start[1] += instr[1]
@@ -43,6 +66,17 @@ def guess_move(instr: tuple, start: list, waypoint: list):
 
 
 def move_by_waypoint(instr: tuple, start: list, waypoint: list):
+    '''
+    Parameters
+    ----------
+    instr : tuple
+    start : list
+    waypoint : list
+
+    Returns
+    -------
+    start : tuple
+    '''
     if instr[0] == 'F':
         start[0] += waypoint[0] * instr[1]
         start[1] += waypoint[1] * instr[1]
@@ -54,9 +88,9 @@ def move_by_waypoint(instr: tuple, start: list, waypoint: list):
         waypoint[1] -= instr[1]
     elif instr[0] == 'W':
         waypoint[0] -= instr[1]
-    elif instr == ('R', 90) or instr == ('L', 270):
+    elif instr in [('R', 90), ('L', 270)]:
         waypoint[0], waypoint[1] = waypoint[1], - waypoint[0]
-    elif instr == ('L', 90) or instr == ('R', 270):
+    elif instr in [('L', 90), ('R', 270)]:
         waypoint[0], waypoint[1] = - waypoint[1], waypoint[0]
     else:
         waypoint[0], waypoint[1] = - waypoint[0], - waypoint[1]
@@ -64,6 +98,20 @@ def move_by_waypoint(instr: tuple, start: list, waypoint: list):
 
 
 def navigation(func, instructions, start, waypoint = [10, 1]):
+    '''
+    Parameters
+    ----------
+    func : function
+        THE FUNCTION THAT DECIDE STARTPOINT
+    instructions : tuple
+    start : list
+    waypoint : list
+        The default is [10, 1].
+
+    Returns
+    -------
+    manhattan_distance : int
+    '''
     for instr in instructions:
         func(instr, start, waypoint)
     manhattan_distance = abs(start[0]) + abs(start[1])
@@ -76,7 +124,3 @@ if __name__ == '__main__':
     answer2 = navigation(move_by_waypoint, instructions, [0, 0])
     print(answer1, answer2)
     
-    
-
-
-
