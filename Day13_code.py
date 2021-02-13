@@ -1,14 +1,6 @@
 '''This programm is a solution
 for day 13/Part 1 challenge of Advent of Code 2020:
-Shuttle Search.
-
-Before running this code you should copy your
-input data into the clipboard'''
-
-import pyperclip
-
-data = pyperclip.paste()
-
+Shuttle Search'''
 
 def clean_buses(data):
     '''
@@ -57,5 +49,7 @@ def find_time(data):
 
 
 if __name__ == '__main__':
+    with open('day_13_shuttle_buses.txt','r') as file:
+        data = file.read()
     bus, waiting_time = find_time(data)              
     print(bus*waiting_time)
